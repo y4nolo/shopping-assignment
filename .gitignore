@@ -1,0 +1,8 @@
+ # ignore ALL .log files
+*.log
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+.yarn/install-state.gz
