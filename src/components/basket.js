@@ -1,20 +1,15 @@
 export default basket =
   // list products
   function lookupBasketItems(basket, products) {
-    // Initialize an empty array to store the looked up items
-    const basketItems = [];
-
-    // Loop through each item in the shopping basket
+    const basketItems = []; // Loop through each item in the shopping basket
     for (const basketItem of basket.items) {
       products.then((resolvedProductsData) => {
         const actualProducts = resolvedProductsData.products;
 
-        // Find the matching product in the catalogue (inside then)
         if (actualProducts && actualProducts.length > 0) {
           const catalogueProduct = actualProducts.find(
             (product) => product.id === basketItem.productId
           );
-          // ... rest of the logic using catalogueProduct
         } else {
           console.warn("No products found in the catalogue");
           // Handle the case where there are no products
@@ -74,7 +69,6 @@ function hasProductPromotion(product) {
 }
 
 function calculateDiscountedPrice(item) {
-  // Discount logic based on promotion type
   let discount = 0;
   const promotion = item.promotion;
 }

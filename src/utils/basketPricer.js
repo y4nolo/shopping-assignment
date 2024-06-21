@@ -13,29 +13,24 @@ export default basketPricer =
 
 //Sardines: 25% discount
 function applyDiscount(product, discountPercentage = 25) {
-  // Validate discount percentage (optional)
   if (discountPercentage < 0 || discountPercentage > 100) {
     console.warn("Invalid discount percentage. Must be between 0 and 100.");
-    return product.price; // Return original price for invalid discount
+    return product.price;
   }
 
-  // Calculate discount amount
   const discountAmount = product.price * (discountPercentage / 100);
 
-  // Apply discount and return discounted price
   return product.price - discountAmount;
 }
 
 //Buy three, get the cheapest one for free with any of the following: Shampoo (Large), Shampoo (Medium), Shampoo (Small)
 function calculateBuy3GetCheapestFree(products) {
-  // Filter products with the "buy 3 get 1 free" promotion
   const promotionalProducts = products.filter(
     (product) => product.promotion === "buy 3 get 1 free"
   );
 
-  // Check if there are any promotional products
   if (!promotionalProducts.length) {
-    return 0; // No products with the promotion, no discount
+    return 0;
   }
 
   // Sort promotional products by price (ascending)
